@@ -6,4 +6,5 @@ RemoteSystemsTempFiles/
 .project
 build/
 bin/
+.recommenders/
 
