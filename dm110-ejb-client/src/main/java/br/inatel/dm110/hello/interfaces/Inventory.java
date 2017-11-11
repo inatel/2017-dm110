@@ -6,4 +6,6 @@ public interface Inventory {
 
 	List<String> listProductNames();
 
+	void createNewProduct(String name);
+
 }

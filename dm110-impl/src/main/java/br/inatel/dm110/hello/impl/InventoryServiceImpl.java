@@ -19,4 +19,9 @@ public class InventoryServiceImpl implements InventoryService {
 		return inventoryBean.listProductNames();
 	}
 
+	@Override
+	public void createNewProduct(String name) {
+		inventoryBean.createNewProduct(name);
+	}
+
 }

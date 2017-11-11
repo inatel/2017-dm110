@@ -18,4 +18,8 @@ public class ProductDAO {
 		return em.createQuery("from Product p", Product.class).getResultList();
 	}
 
+	public void insert(Product product) {
+		em.persist(product);
+	}
+
 }

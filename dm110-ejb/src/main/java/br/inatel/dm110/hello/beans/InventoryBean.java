@@ -26,4 +26,12 @@ public class InventoryBean implements InventoryRemote, InventoryLocal {
 		return productDAO.listAll().stream().map(Product::getName).collect(Collectors.toList());
 	}
 
+	@Override
+	public void createNewProduct(String name) {
+		Product product = new Product();
+		product.setName(name);
+		product.setQuantity(0);
+		productDAO.insert(product);
+	}
+
 }
