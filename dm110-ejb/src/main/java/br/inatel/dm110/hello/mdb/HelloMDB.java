@@ -1,14 +1,11 @@
 package br.inatel.dm110.hello.mdb;
 
 import javax.ejb.ActivationConfigProperty;
-import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
-
-import br.inatel.dm110.hello.interfaces.InventoryLocal;
 
 @MessageDriven(activationConfig = {
 		@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
@@ -17,9 +14,6 @@ import br.inatel.dm110.hello.interfaces.InventoryLocal;
 })
 public class HelloMDB implements MessageListener {
 	
-	@EJB
-	private InventoryLocal inventory;
-
 	@Override
 	public void onMessage(Message message) {
 		try {
@@ -29,7 +23,6 @@ public class HelloMDB implements MessageListener {
 				System.out.println("#### Iniciando processamento...");
 				Thread.sleep(15000);
 				System.out.println("#### Processando mensagem: " + text);
-				inventory.createNewProduct(text);
 				Thread.sleep(5000);
 				System.out.println("#### Finalizando processamento...");
 			}

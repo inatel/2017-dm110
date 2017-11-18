@@ -6,6 +6,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 
 import br.inatel.dm110.hello.api.InventoryService;
+import br.inatel.dm110.hello.api.ProductTO;
 import br.inatel.dm110.hello.interfaces.InventoryRemote;
 
 @RequestScoped
@@ -20,8 +21,8 @@ public class InventoryServiceImpl implements InventoryService {
 	}
 
 	@Override
-	public void createNewProduct(String name) {
-		inventoryBean.createNewProduct(name);
+	public void createNewProduct(ProductTO productTO) {
+		inventoryBean.createNewProduct(productTO);
 	}
 
 }
